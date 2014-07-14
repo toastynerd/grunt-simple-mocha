@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 
     mocha_instance.run(function(errCount) {
       var withoutErrors = (errCount === 0);
-      done(withoutErrors);
+      done(options.force || withoutErrors);
     });
   });
 };
