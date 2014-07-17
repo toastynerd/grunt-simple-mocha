@@ -18,6 +18,11 @@ module.exports = function(grunt) {
     d.on('error', function(err) {
       console.log('error time')
     });
+
+    d.on('uncaughtException', function(err) {
+      console.log('exception time!');
+    });
+
     d.run(function() {
       var options = gruntThis.options(),
           mocha_instance = new Mocha(options);
