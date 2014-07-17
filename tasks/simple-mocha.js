@@ -15,6 +15,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('simplemocha', 'Run tests with mocha', function() {
     var gruntThis = this;
     var d = domain.create();
+
     d.on('error', function(err) {
       console.log('error time')
     });
@@ -24,6 +25,7 @@ module.exports = function(grunt) {
     });
 
     d.run(function() {
+      throw new Error('here is an error');
       var options = gruntThis.options(),
           mocha_instance = new Mocha(options);
 
