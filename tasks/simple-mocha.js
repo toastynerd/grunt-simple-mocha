@@ -12,11 +12,12 @@ module.exports = function(grunt) {
       Mocha = require('mocha'),
       domain = require('domain');
 
-  process.on('uncaughtException', function(err) {
-    console.log('I caught an error and I liked it');
-  });
 
   grunt.registerMultiTask('simplemocha', 'Run tests with mocha', function() {
+    process.on('uncaughtException', function(err) {
+      console.log('I caught an error and I liked it');
+    });
+
     var gruntThis = this;
     var d = domain.create();
 
