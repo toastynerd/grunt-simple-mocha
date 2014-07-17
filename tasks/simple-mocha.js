@@ -30,7 +30,6 @@ module.exports = function(grunt) {
     });
 
     d.run(function() {
-      throw new Error('here is an error');
       var options = gruntThis.options(),
           mocha_instance = new Mocha(options);
 
