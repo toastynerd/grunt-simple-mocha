@@ -15,18 +15,18 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('simplemocha', 'Run tests with mocha', function() {
     process.on('uncaughtException', function(err) {
-      grunt.log('I caught an error and I liked it');
+      grunt.log.error('I caught an error and I liked it');
     });
 
     var gruntThis = this;
     var d = domain.create();
 
     d.on('error', function(err) {
-      grunt.log('error time')
+      grunt.log.error('error time')
     });
 
     d.on('uncaughtException', function(err) {
-      grunt.log('exception time!');
+      grunt.log.error('exception time!');
     });
 
     d.run(function() {
