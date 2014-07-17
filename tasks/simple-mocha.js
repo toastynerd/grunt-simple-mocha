@@ -10,7 +10,11 @@ module.exports = function(grunt) {
 
   var path = require('path'),
       Mocha = require('mocha'),
-      domain = require('domain');;
+      domain = require('domain');
+
+  process.on('uncaughtException', function(err) {
+    console.log('I caught an error and I liked it');
+  });
 
   grunt.registerMultiTask('simplemocha', 'Run tests with mocha', function() {
     var gruntThis = this;
